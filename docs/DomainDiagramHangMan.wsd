@@ -28,7 +28,7 @@ HangMan *-- GuessingAttempts
 
 Round --> GuessingAttempts
 Round *-- Turn
-Round ..> AssignRoles
+Round *-- AssignRoles
 AssignRoles ..> Player
 AssignRoles ..> WordGiverable
 AssignRoles ..> WordGuesserable
