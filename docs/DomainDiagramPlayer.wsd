@@ -1,0 +1,38 @@
+@startuml VocabularyPlayer
+
+object ListOfPlayers
+object Player
+object TypeGame
+object ListResults
+object Result
+object Win
+object Lost
+object Tie
+
+object SelectPlayer
+object SelectStatisticsGame
+object StatisticsTempo
+object SaveStatistics
+
+ListOfPlayers *-down- Player
+Player *--"0..*" ListResults
+ListResults *-- Result
+Result *-- TypeGame
+Result *-- Win
+Result *-- Lost
+Result *-- Tie
+
+SelectPlayer .left.> ListOfPlayers
+SelectPlayer ..> Player
+
+SelectStatisticsGame ..> ListResults
+SelectStatisticsGame ..> Result
+
+StatisticsTempo *-right- Player
+StatisticsTempo *-- ListResults
+StatisticsTempo *-- SaveStatistics
+
+
+
+
+@enduml
