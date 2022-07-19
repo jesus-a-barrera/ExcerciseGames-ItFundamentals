@@ -14,6 +14,8 @@ object ListOfPlayers
 object TypeGame
 object Statistics
 object AssignRoles
+object TicTacToeType
+object HangManType
 
 Games *-down-"2" Game
 Games *-down-"10" ListOfPlayers
@@ -32,6 +34,8 @@ TicTacToe -up-|> Game
 HangMan -up-|> Game
 
 
+TicTacToeType -down-|> TypeGame
+HangManType -down-|> TypeGame
 
 CRUD .right.> ListOfPlayers
 Statistics ..> ListOfPlayers:SelectStatisticsGame
