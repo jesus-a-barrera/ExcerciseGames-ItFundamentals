@@ -1,0 +1,13 @@
+@startuml
+
+class Hangman
+class Player
+class SecretWord
+class Turn
+class HangedMan
+
+class WordGiver
+class WordGuesser
+
+
+@enduml
