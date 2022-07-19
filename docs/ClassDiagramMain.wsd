@@ -1,0 +1,20 @@
+@startuml
+
+class GamesPlatform {}
+abstract class Game {}
+class TicTacToe {}
+class HangMan {}
+abstract class Player {}
+class Bot {}
+class Human {}
+
+GamesPlatform *-- "10" Player
+GamesPlatform *-- "2" Game
+
+Game <|-- TicTacToe
+Game <|-- HangMan
+
+Player <|-- Bot
+Player <|-- Human
+
+@enduml
