@@ -18,6 +18,7 @@ object GuessingAttempts
 object AskForAHint
 object RemainingAttempts
 object GuiveAHint
+object HangManPlayer
 
 HangMan *--"2" Round
 HangMan ..> SelectPlayers
@@ -40,8 +41,9 @@ Turn *-- WordGuesserable
 Turn --> StatisticsTempo
 
 SelectPlayers ..> Player
-Player ..|> WordGiverable
-Player ..|> WordGuesserable
+WordGiverable --|> HangManPlayer
+WordGuesserable --|> HangManPlayer
+Player ..|> HangManPlayer
 WordGiverable *-- GiveWord
 WordGuesserable *-- GuessWord
 WordGuesserable *-- TryLetter
