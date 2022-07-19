@@ -1,0 +1,47 @@
+@startuml
+
+package executablegames{
+    class Main{
+
+    }
+
+    Class MainGames{
+
+    }
+
+    class CRUD{
+
+    }
+
+    class Statistics{
+
+    }
+
+
+    package players{
+        class ListOfPlayers{
+
+        }
+    }
+
+    package games{
+        class Game{
+            -int NUMBEROFPLAYERS
+            -TypeGame typeGame
+            +{abstract}introduction()
+            +{abstract}execute()
+            +{abstract}resume()
+            +{abstract}getNumberOfPlayers()
+        }
+    }
+
+    Main *-- MainGames
+    
+    MainGames *-- CRUD
+    MainGames *-- Statistics
+    MainGames *-- ListOfPlayers
+    MainGames *--"2" Game
+
+}
+
+@enduml

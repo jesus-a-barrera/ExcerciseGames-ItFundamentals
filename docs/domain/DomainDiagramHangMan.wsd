@@ -19,6 +19,9 @@ object AskForAHint
 object RemainingAttempts
 object GuiveAHint
 object HangManPlayer
+object ListCharacters
+object Character
+object Hidden
 
 HangMan *--"2" Round
 HangMan ..>"2" SelectPlayers
@@ -53,5 +56,10 @@ HangedMan *-- SecretWord
 HangedMan *-- GuessingAttempts
 HangedMan *-- RemainingAttempts
 HangedMan *-- GuiveAHint
+
+SecretWord *-down- ListCharacters
+
+ListCharacters *--"*" Character
+Character *-- Hidden
 
 @enduml
