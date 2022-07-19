@@ -1,13 +1,23 @@
 @startuml
 
-class Hangman
+class HangMan
 class Player
 class SecretWord
 class Turn
 class HangedMan
 
-class WordGiver
-class WordGuesser
+interface WordGiver
+interface WordGuesser
+interface HangManPlayer
 
+HangMan o-- Player
+HangMan *--Turn
+Turn*-- SecretWord
+Turn*-- HangedMan
+
+Player <|..HangManPlayer
+HangManPlayer<|-- WordGuesser
+HangManPlayer<|-- WordGiver
+Turn --* Player
 
 @enduml
