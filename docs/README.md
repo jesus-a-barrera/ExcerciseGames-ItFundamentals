@@ -1,5 +1,9 @@
 ## Hangman
 
+### Puntos a favor
+- La creacion de una interfaz HangManPlayer para exponer unicamente las acciones y caracteristicas necesarias.
+- La seleccion de los jugadores por parte del juego para desacoplar el numero y el tipo de los mismos.
+
 ### Puntos en contra
 - Consideramos que HangedMan no debería estar compuesto por SecretWord, ya que HangedMan no está compuesto de la palabra a adivinar como tal.
 - Round no debería depender de AsignRoles, si bien estos deben tener comunicación pero la ronda no está depende de la asignación de roles, sino del orden en el que estos juegan.
