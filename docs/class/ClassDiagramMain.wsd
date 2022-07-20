@@ -1,4 +1,4 @@
-@startuml
+@startuml classDiagramMain
 
 package executablegames{
     class Main{
@@ -6,7 +6,15 @@ package executablegames{
     }
 
     Class MainGames{
-
+        -Games[] games
+        -ListOfPlayers listOfPlayers
+        -ListOfResults listOfResults
+        -CRUD crud
+        -Statistics statistics
+        +MainGames()
+        +printMenu()
+        +printGamesOption()
+        +executeOption()
     }
 
     class CRUD{
@@ -20,7 +28,9 @@ package executablegames{
 
     package players{
         class ListOfPlayers{
+        }
 
+        class ListOfResults{
         }
     }
 
@@ -41,6 +51,7 @@ package executablegames{
     MainGames *-- Statistics
     MainGames *-- ListOfPlayers
     MainGames *--"2" Game
+    MainGames *-- ListOfResults
 
 }
 
