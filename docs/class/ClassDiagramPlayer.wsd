@@ -1,0 +1,66 @@
+@startuml classDiagram
+
+package players{
+    class ListOfPlayers{
+        -Player[] players
+        +createPlayer()
+        +getPlayers(int amount):Player[]
+    }
+
+    abstract Player{
+        -int id
+        -String name
+        -ListOfResults listofResults
+    }
+
+    class ListOfResults{
+        -Result[] results
+    }
+
+    class Result{
+        -TypeGame typeGame
+        -int Win
+        -int Lose
+        -int Tie
+        -Player player
+    }
+
+    class ResultTempo{
+        -int win 
+        -int Lose
+        -int tie
+        -TypeGame typeGame
+    }
+
+    class Human{
+
+    }
+
+    class Boot{
+
+    }
+
+
+
+    ListOfPlayers *-- Player
+    ListOfResults *-up- Result
+
+    Player o-right- ListOfResults
+    Human -up-|> Player
+    Boot -up-|> Player
+
+    Result *-- Player
+
+}
+
+package game{
+    class TypeGame{
+
+    }
+}
+
+Result *-up- TypeGame
+ResultTempo *-up- TypeGame
+ResultTempo *-- Player
+
+@enduml

@@ -1,0 +1,57 @@
+@startuml
+
+package hangman{
+    class HangMan{
+        +HangMan()
+        +getAmontOfPlayers():int
+        -int maxAttempts
+    }
+
+    class Round{
+
+    }
+
+    class Turn{
+        -WordGiverable wordGiver
+        -WordGuesserable wordGuesser
+        -HangedMan hangedMan
+        +Turn(int maxAttempts, Player[2] players )
+        
+    }
+
+
+    interface HangManPlayer{
+    }
+
+    interface WordGiverable{
+        +giveWord():String
+    }
+
+    interface WordGuesserable{
+        +guesseWord():String
+        +tryLetter():char
+        +askForHint()
+    }
+
+    HangedManPlayer ..|> WordGiverable
+    HangedManPlayer ..|> WordGuesserable
+
+    Turn *-- WordGiverable
+    Turn *-- WordGuesserable
+    Turn *-- hangedMan
+
+}
+
+package players{
+    class ListOfPlayers{
+        +getPlayers(int amount):Player[]
+    }
+
+    class Player{
+    }
+}
+
+HangMan ..> ListOfPlayers:getPlayer()
+Player ..|> HangedManPlayer
+
+@enduml
