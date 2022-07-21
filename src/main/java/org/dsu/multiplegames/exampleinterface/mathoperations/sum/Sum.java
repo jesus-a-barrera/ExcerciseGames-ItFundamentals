@@ -8,6 +8,10 @@ public class Sum extends Operation {
     private int value2;
     private int result;
 
+    public Sum(MathSolver mathSolver){
+        super(mathSolver);
+    }
+
     @Override
     public void obtainValues() {
         System.out.println("obtainin sum values");
@@ -25,12 +29,13 @@ public class Sum extends Operation {
     @Override
     public void printResult() {
         System.out.println("user: "+adder.toString()+" sum: "+value1+"+"+value2+"="+result);
+        mathSolver.processResult(result);
         
     }
 
     @Override
-    public void setSolver(MathSolver mathSolver) {
-        adder = (Adder) mathSolver;
+    public void setSolver() {
+        adder = (Adder) this.mathSolver;
         
         
     }

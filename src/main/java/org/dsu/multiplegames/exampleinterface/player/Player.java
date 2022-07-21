@@ -23,5 +23,10 @@ public class Player implements MathSolver {
     public int getIntSubstract() {
         return 12;
     }
+
+    @Override
+    public void processResult(int result) {
+        System.out.println("desde player procesando result"+result);        
+    }
     
 }

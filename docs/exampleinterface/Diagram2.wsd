@@ -12,16 +12,24 @@ package exampleinterface{
         }
     }
 
+    package soldier{
+        class Soldier{
+
+        }
+    }
+
     package mathoperations{
         abstract Operation{
+            -MathSolver mathSolver
+            +Operation(MathSolver mathSolver)
             +{abstract}obtainValues()
             +{abstract}executeOperation()
             +{abstract}printResult()
-            +{abstract}setSolver(MathSolver solver)
+            +{abstract}setSolver()
         }
 
         interface MathSolver{
-
+            +processResult(int result)
         }
 
         package sum{
@@ -56,10 +64,11 @@ package exampleinterface{
 
         Sum -up-|> Operation
         Substract -up-|> Operation
-        Operation ..> MathSolver
+        Operation *-- MathSolver
     }
 
     Player ..|> MathSolver
+    Soldier ..|> MathSolver
 
     MathSolver .up.|> Substractor
     MathSolver .up.|> Adder
@@ -68,6 +77,8 @@ package exampleinterface{
     ExampleInterface --> Sum
     ExampleInterface --> Substract
     ExampleInterface --> Player
+
+
 }
 
 

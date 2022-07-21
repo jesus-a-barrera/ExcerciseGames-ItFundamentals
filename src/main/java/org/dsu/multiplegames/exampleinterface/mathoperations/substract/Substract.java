@@ -9,6 +9,9 @@ public class Substract extends Operation {
     private int value2;
     private int result;
 
+    public Substract(MathSolver mathSolver){
+        super(mathSolver);
+    }
 
     @Override
     public void obtainValues() {
@@ -27,12 +30,12 @@ public class Substract extends Operation {
     @Override
     public void printResult() {
         System.out.println("user: "+substractor.toString()+" substract: "+value1+"-"+value2+"="+result);
-        
+        mathSolver.processResult(result);
     }
 
     @Override
-    public void setSolver(MathSolver mathSolver) {
-        substractor = (Substractor)mathSolver;
+    public void setSolver() {
+        substractor = (Substractor)this.mathSolver;
         
     }
     
