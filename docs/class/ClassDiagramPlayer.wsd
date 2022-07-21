@@ -43,24 +43,39 @@ package players{
 
 
     ListOfPlayers *-- Player
-    ListOfResults *-up- Result
+    ListOfResults *-- Result
 
-    Player o-right- ListOfResults
-    Human -up-|> Player
-    Boot -up-|> Player
+    
+    Human --|> Player
+    Boot --|> Player
 
     Result *-- Player
 
 }
 
 package game{
-    class TypeGame{
+    enum TypeGame{
+        +TicTAcToe
+        +HangMan
+    }
+    package tictacto{
+        interface TicTacToePlayer{
+        }
+    }
 
+    package hangman{
+        interface HangManPlayer{
+        }
     }
 }
 
-Result *-up- TypeGame
-ResultTempo *-up- TypeGame
+
+
+Result *-- TypeGame
+ResultTempo *-- TypeGame
 ResultTempo *-- Player
+
+Player ..|> TicTacToePlayer
+Player ..|> HangManPlayer
 
 @enduml

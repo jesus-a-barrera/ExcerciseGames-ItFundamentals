@@ -1,4 +1,4 @@
-@startuml
+@startuml classdiagramHangman
 
 package hangman{
     class HangMan{
@@ -33,8 +33,8 @@ package hangman{
         +askForHint()
     }
 
-    HangedManPlayer ..|> WordGiverable
-    HangedManPlayer ..|> WordGuesserable
+    HangManPlayer ..|> WordGiverable
+    HangManPlayer ..|> WordGuesserable
 
     Turn *-- WordGiverable
     Turn *-- WordGuesserable
@@ -52,6 +52,6 @@ package players{
 }
 
 HangMan ..> ListOfPlayers:getPlayer()
-Player ..|> HangedManPlayer
+Player ..|> HangManPlayer
 
 @enduml
