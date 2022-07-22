@@ -1,0 +1,85 @@
+@startuml
+
+package exampleinterface{
+
+    class ExampleInterface{
+        +executeOperation(Operation operation)
+    }
+
+    package player{
+        class Player{
+
+        }
+    }
+
+    package soldier{
+        class Soldier{
+
+        }
+    }
+
+    package mathoperations{
+        abstract Operation{
+            -MathSolver mathSolver
+            +Operation(MathSolver mathSolver)
+            +{abstract}obtainValues()
+            +{abstract}executeOperation()
+            +{abstract}printResult()
+            +{abstract}setSolver()
+        }
+
+        interface MathSolver{
+            +processResult(int result)
+        }
+
+        package sum{
+            interface Adder{
+                +getIntAdd():int
+            }
+
+            class Sum{
+                -Adder adder
+                -int value1
+                -int value2
+                -int result
+            }
+            
+            Sum *-- Adder
+        }
+
+        package substract{
+            interface Substractor{
+                +getIntSubstract():int
+            }
+
+            class Substract{
+                -Substractor substractor
+                -int value1
+                -int value2
+                -int result
+            }
+            
+            Substract *-- Substractor
+        }
+
+        Sum -up-|> Operation
+        Substract -up-|> Operation
+        Operation *-- MathSolver
+    }
+
+    Player ..|> MathSolver
+    Soldier ..|> MathSolver
+
+    MathSolver .up.|> Substractor
+    MathSolver .up.|> Adder
+
+    ExampleInterface --> Operation
+    ExampleInterface --> Sum
+    ExampleInterface --> Substract
+    ExampleInterface --> Player
+
+
+}
+
+
+@enduml

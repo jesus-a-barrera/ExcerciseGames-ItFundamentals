@@ -35,7 +35,7 @@ package executablegames{
     }
 
     package games{
-        class Game{
+        abstract Game{
             -int NUMBEROFPLAYERS
             -TypeGame typeGame
             +{abstract}introduction()
